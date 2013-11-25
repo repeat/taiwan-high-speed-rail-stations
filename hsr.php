@@ -27,7 +27,7 @@ foreach ($stations as $station) {
         '緯度' => (float) $lat,
         '經度' => (float) $lon
     ];
-    
+
     $feature = [
         'type' => 'Feature',
         'geometry' => $geometry,
