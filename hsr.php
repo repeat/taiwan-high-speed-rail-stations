@@ -12,11 +12,7 @@ $geometry = [
 ];
 
 foreach ($stations as $station) {
-    list($id, $name, $zipcode, $address, $lat, $lon, $future) = $station;
-
-    if (1 == $future) {
-        continue;
-    }
+    list($id, $name, $zipcode, $address, $lat, $lon) = $station;
 
     $geometry['coordinates'] = [(float) $lon, (float) $lat];
     $properties = [
