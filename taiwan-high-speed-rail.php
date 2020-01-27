@@ -1,5 +1,7 @@
 <?php
-$lines = file('hsr.csv');
+$file_name = 'taiwan-high-speed-rail';
+
+$lines = file($file_name . '.csv');
 foreach ($lines as $line) {
     $stations[] = str_getcsv($line);
 }
@@ -43,6 +45,6 @@ $geojson = [
     'features' => $features
 ];
 
-$handle = fopen('hsr.geojson', 'w+');
+$handle = fopen($file_name . '.geojson', 'w+');
 fwrite($handle, json_encode($geojson, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES | JSON_PRETTY_PRINT));
 fclose($handle);
