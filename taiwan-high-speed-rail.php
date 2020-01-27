@@ -1,6 +1,10 @@
 <?php
 $file_name = 'taiwan-high-speed-rail';
 
+$geometry = [
+    'type' => 'Point'
+];
+
 $lines = file($file_name . '.csv');
 foreach ($lines as $line) {
     $stations[] = str_getcsv($line);
@@ -8,10 +12,6 @@ foreach ($lines as $line) {
 
 // remove column name
 unset($stations[0]);
-
-$geometry = [
-    'type' => 'Point'
-];
 
 foreach ($stations as $station) {
     list($id, $name, $zipcode, $address, $lat, $lon) = $station;
